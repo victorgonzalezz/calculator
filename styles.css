@@ -5,6 +5,7 @@ main{
   justify-content: center;
   align-items: center;
 
+
 }
 
 .container{
@@ -38,6 +39,11 @@ main{
   justify-content: space-between;
   align-items: center;
 }
+::placeholder {
+  font-weight: 400;
+  font-size: 1.2rem;
+  opacity: 0.5;
+}
 .input input {
   width: 200px;
   height: 50px;
@@ -54,12 +60,18 @@ main{
 .input span {
   position: absolute;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-style: italic;
   display: flex;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  margin-top: 70px;
-  margin-left: 97px;
+  margin-top: 39px;
+  transition: color .2s linear;
+  
+}
+.input span::after {
+  content: '\002A';
+  color: #e02b27;
+  font-family: "FontAwesome";
   
 }
 
