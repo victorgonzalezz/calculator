@@ -4,7 +4,6 @@ main{
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: red;
 
 
 }
@@ -31,11 +30,8 @@ main{
   border-radius: 20px;
   box-shadow: 0 0 10px black;
   }
-  .title{
-  margin-bottom: 10px;
-    font-size: 2rem;
   }
-  }
+
 
 .title{
   display: flex;
@@ -47,6 +43,11 @@ main{
   border-bottom: solid 5px black;
   margin-bottom: 20px;
 }
+@media (max-width: 768px) {
+  .title {
+  font-size: 2rem;
+  }
+  }
 
 .input {
   display: flex;
