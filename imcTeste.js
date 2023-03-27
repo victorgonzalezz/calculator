@@ -12,6 +12,11 @@ function imc() {
   const peso = +document.getElementById("peso").value;
 
   if (nome !== "" && altura !== "" && peso !== "") {
+    if(!altura || !peso) {
+      const resultado = document.getElementById("resultado");
+      resultado.textContent = "Complete demais campos";
+      return;
+    }
     const valorIMC = calcularIMC(peso, altura);
     const classificacao = classificarIMC(valorIMC);
     atualizarResultado(nome, valorIMC, classificacao);
@@ -20,6 +25,8 @@ function imc() {
     resultado.textContent = "Preencha todos os campos";
   }
 }
+
+    
 
 function calcularIMC(peso, altura) {
   return (peso / (altura * altura)).toFixed(1);

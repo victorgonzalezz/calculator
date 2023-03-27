@@ -6,47 +6,55 @@ function lettersOnly(input) {
   var regex = /[^a-z ]/gi;
   input.value = input.value.replace(regex, "");
 }
-
-
-
 function imc() {
   const nome = document.getElementById("nome").value;
   const altura = +document.getElementById("altura").value;
   const peso = +document.getElementById("peso").value;
-  const resultado = document.getElementById("resultado");
 
   if (nome !== "" && altura !== "" && peso !== "") {
-    console.log(nome, "Sou o nome")
-    console.log(altura, "Sou a altura")
-    console.log(peso, "Sou o peso")
-
-    const valorIMC = (peso / (altura * altura)).toFixed(1);
-
-    let classificacao = "";
-    
-    if(valorIMC < 18.5){
-      classificacao = "abaixo do peso. Tá na hora de ganhar massa muscular!"
-    } else if( valorIMC < 25) {
-      classificacao = "com um IMC dentro dos valores normais. Continua assim!"
-    } else if(valorIMC < 30) {
-      classificacao = "um pouco acima do peso. Abre teu olho!"
-    } else if(valorIMC < 35) {
-      classificacao = "com Obesidade grau I. Levanta do sofá e para de comer pastel de nata!"
-    } else if (valorIMC < 40) {
-      classificacao = " com Obesidade grau II. Se liga!"
-    } else {
-      classificacao = 'praticamente morto e não sabe'
+    if(!altura || !peso) {
+      const resultado = document.getElementById("resultado");
+      resultado.textContent = "Complete demais campos";
+      return;
     }
-
-    result55555ado.textContent = `${nome}, o valor do seu IMC é ${valorIMC} .Você está ${classificacao} `;
-
-
-
+    const valorIMC = calcularIMC(peso, altura);
+    const classificacao = classificarIMC(valorIMC);
+    atualizarResultado(nome, valorIMC, classificacao);
   } else {
+    const resultado = document.getElementById("resultado");
     resultado.textContent = "Preencha todos os campos";
   }
 }
 
+    
+
+function calcularIMC(peso, altura) {
+  return (peso / (altura * altura)).toFixed(1);
+}
+
+function classificarIMC(imc) {
+  if (imc < 18.5) {
+    return "abaixo do peso. Tá na hora de ganhar massa muscular!";
+  } else if (imc < 25) {
+    return "com um IMC dentro dos valores normais. Continua assim!";
+  } else if (imc < 30) {
+    return "um pouco acima do peso. Abre teu olho!";
+  } else if (imc < 35) {
+    return "com Obesidade grau I. Levanta do sofá e para de comer pastel de nata!";
+  } else if (imc < 40) {
+    return "com Obesidade grau II. Se liga!";
+  } else {
+    return "praticamente morto e não sabe";
+  }
+}
+
+function atualizarResultado(nome, valorIMC, classificacao) {
+  const resultado = document.getElementById("resultado");
+  resultado.textContent = `${nome}, o valor do seu IMC é ${valorIMC}. Você está ${classificacao}`;
+}
+
+
+  
 
 function cleanValuesIMC(){
   nome.value = ""
@@ -56,20 +64,10 @@ function cleanValuesIMC(){
 }
 
 calcular.addEventListener("click", imc);
-/*
-function principal
-{
-  function  validacao
-  function  imc
-}
-*/
 
 //eventos
 limpar.addEventListener("click", (e) => {
   e.preventDefault();
   cleanValuesIMC();
 })
-console.log(nome, "Sou o nome")
-console.log(altura, "Sou a altura")
-console.log(peso, "Sou o peso")
 
