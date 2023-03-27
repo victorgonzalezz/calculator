@@ -50,7 +50,7 @@ function classificarIMC(imc) {
 
 function atualizarResultado(nome, valorIMC, classificacao) {
   const resultado = document.getElementById("resultado");
-  resultado.textContent = `${nome}, o valor do seu IMC é ${valorIMC}. Você está ${classificacao}`;
+  resultado.textContent = `${nome}, o valor do seu IMC é ${valorIMC} . Você está ${classificacao}`;
 }
 
 
