@@ -25,7 +25,6 @@ main{
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  margin: -10px;
   width: 91%;
   border-radius: 20px;
   box-shadow: 0 0 10px black;
@@ -94,7 +93,7 @@ main{
 }
 @media (max-width: 768px) {
   .input span{
-    font: bold 0.5rem serif;
+    font: bold 0.6rem serif;
 
   }
   }
