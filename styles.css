@@ -94,7 +94,7 @@ main{
 }
 @media (max-width: 768px) {
   .input span{
-    font: bold 0.7rem serif;
+    font: bold 0.4rem serif;
 
   }
   }
