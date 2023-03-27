@@ -5,7 +5,6 @@ main{
   justify-content: center;
   align-items: center;
 
-
 }
 
 .container{
@@ -109,6 +108,9 @@ button{
   border-radius: 5px;
   cursor: pointer;
 }
+button:hover{
+opacity: 0.6;
+}
 
 .result{
   display: flex;
@@ -124,4 +126,35 @@ button{
   padding: 20px;
   box-sizing: border-box;
   user-select: none;
+}
+.hide {
+  display: none !important;
+}
+
+#pai__result{
+  position: fixed;
+}
+
+#result-container {
+position: absolute;
+transform: translate(30px, 20px) rotate(-20deg);
+top: -262px;
+left: -230px;
+font-size: 2.2rem;
+}
+
+#result-container:nth-child(1) {
+  color: red;
+  animation: fade 1s infinite 100ms;
+}
+
+
+@-webkit-keyframes fade {
+  from {opacity: 1;}
+  to {opacity: 0;}
+} 
+
+@keyframes fade {
+  from {opacity: 1;}
+  to {opacity: 0;}
 }
