@@ -2,22 +2,24 @@ const calcular = document.getElementById("calcular");
 const limpar = document.getElementById("limpar");
 
 //lógica para não permitir a letra "e" e d
-function lettersOnly(input) { 
-  var regex = /[^a-z ]/gi;
-  input.value = input.value.replace(regex, "");
+function lettersOnly(input) {
+  var regex = /[^a-z ç~^´]/gi;
+  var normalizedValue = input.value.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  input.value = normalizedValue.replace(regex, "");
 }
+    
 function imc() {
   const nome = document.getElementById("nome").value;
-  const altura = +document.getElementById("altura").value;
+  const altura_cm = +document.getElementById("altura").value;
   const peso = +document.getElementById("peso").value;
 
-  if (nome !== "" && altura !== "" && peso !== "") {
-    if(!altura || !peso) {
+  if (nome !== "" && altura_cm !== "" && peso !== "") {
+    if(!altura_cm || !peso) {
       const resultado = document.getElementById("resultado");
       resultado.textContent = "Complete demais campos";
       return;
     }
-    const valorIMC = calcularIMC(peso, altura);
+    const valorIMC = calcularIMC(peso, altura_cm);
     const classificacao = classificarIMC(valorIMC);
     atualizarResultado(nome, valorIMC, classificacao);
   } else {
@@ -28,9 +30,14 @@ function imc() {
 
     
 
-function calcularIMC(peso, altura) {
-  return (peso / (altura * altura)).toFixed(2);
+// function calcularIMC(peso, altura) {
+//   return (peso / (altura * altura)).toFixed(2);
+// }
+function calcularIMC(peso, altura_cm) {
+  let altura_m = altura_cm / 100; // converter de cm para m
+  return (peso / (altura_m * altura_m)).toFixed(2);
 }
+
 
 function classificarIMC(imc) {
   if (imc < 18.5) {
@@ -50,7 +57,7 @@ function classificarIMC(imc) {
 
 function atualizarResultado(nome, valorIMC, classificacao) {
   const resultado = document.getElementById("resultado");
-  resultado.textContent = `${nome}, o valor do seu IMC é ${valorIMC} . Você está ${classificacao}`;
+  resultado.textContent = `${nome}, o valor do seu IMC é ${valorIMC} .Você está ${classificacao}`;
 }
 
 
@@ -58,7 +65,7 @@ function atualizarResultado(nome, valorIMC, classificacao) {
 
 function cleanValuesIMC(){
   nome.value = ""
-  altura.value = ""
+  altura_cm.value = ""
   peso.value = ""
   resultado.textContent = ""
 }
