@@ -92,6 +92,13 @@ main{
   font-family: "FontAwesome";
   
 }
+@media (max-width: 768px) {
+  .input span{
+    font: bold 0.7rem serif;
+
+  }
+  }
+
 
 button{
   width: 300px;
