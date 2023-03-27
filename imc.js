@@ -29,7 +29,7 @@ function imc() {
     
 
 function calcularIMC(peso, altura) {
-  return (peso / (altura * altura)).toFixed(1);
+  return (peso / (altura * altura)).toFixed(2);
 }
 
 function classificarIMC(imc) {
@@ -50,7 +50,7 @@ function classificarIMC(imc) {
 
 function atualizarResultado(nome, valorIMC, classificacao) {
   const resultado = document.getElementById("resultado");
-  resultado.textContent = `${nome}, o valor do seu IMC é ${valorIMC}. Você está ${classificacao}`;
+  resultado.textContent = `${nome}, o valor do seu IMC é ${valorIMC} . Você está ${classificacao}`;
 }
 
 
