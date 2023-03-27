@@ -45,7 +45,7 @@ main{
 }
 @media (max-width: 768px) {
   .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   }
   }
 
@@ -94,7 +94,7 @@ main{
 }
 @media (max-width: 768px) {
   .input span{
-    font: bold 0.4rem serif;
+    font: bold 0.5rem serif;
 
   }
   }
