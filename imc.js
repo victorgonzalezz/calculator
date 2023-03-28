@@ -4,17 +4,16 @@ const alerta = document.getElementById("result-container");
 
 //lógica para não permitir a letra "e" e d
 function lettersOnly(input) {
-  var regex = /[^a-z ç~^´]/gi;
-  var normalizedValue = input.value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+  var regex = /[^a-zç\s~^´]/gi;
+  var normalizedValue = unorm.nfd(input.value).replace(/[\u0300-\u036f]/g, "");
   input.value = normalizedValue.replace(regex, "");
 }
-
 function imc() {
   const nome = document.getElementById("nome").value;
   const altura_cm = +document.getElementById("altura").value;
   const peso = +document.getElementById("peso").value;
+  console.log(nome, "oi")
+
 
   if (nome !== "" && altura_cm !== "" && peso !== "") {
     if (!altura_cm || !peso) {
