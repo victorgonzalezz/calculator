@@ -24,13 +24,24 @@ main{
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 91%;
+  width: 100%;
   border-radius: 20px;
   box-shadow: 0 0 10px black;
   }
   }
-
-
+  @media (max-width: 400px) {
+    .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 91%;
+    height: 91%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    }
+  }
+  
 .title{
   display: flex;
   justify-content: center;
@@ -55,6 +66,7 @@ main{
   justify-content: space-between;
   align-items: center;
 }
+
 ::placeholder {
   font-weight: 400;
   font-size: 1.2rem;
@@ -97,7 +109,11 @@ main{
   }
   }
 
-
+  @media (max-width: 400px) {
+    .input {
+    width: 97%;
+    }
+  }
 button{
   width: 300px;
   height: 40px;
@@ -110,6 +126,18 @@ button{
 }
 button:hover{
 opacity: 0.6;
+}
+@media (max-width: 400px) {
+  button {
+    width: 285px;
+    height: 40px;
+    font: bold 1.2rem serif;
+    background: #000;
+    color: rgb(255,198,0);
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 }
 
 .result{
@@ -126,6 +154,11 @@ opacity: 0.6;
   padding: 20px;
   box-sizing: border-box;
   user-select: none;
+}
+@media (max-width: 400px) {
+  .result {
+    width: 285px;
+}
 }
 .hide {
   display: none !important;
@@ -157,4 +190,12 @@ font-size: 2.2rem;
 @keyframes fade {
   from {opacity: 1;}
   to {opacity: 0;}
+}
+
+@media (max-width: 400px) {
+  #result-container {
+    top: -232px;
+    left: -181px;
+    font-size: 1.7rem;
+  }
 }
